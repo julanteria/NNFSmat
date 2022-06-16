@@ -3,10 +3,18 @@
 
 
 
-data = nspirals(4);
+data = nspirals(3);
 
+
+
+
+figure(1)
 scatter(data(:,1), data(:,2), 12, data(:,3)); axis equal;
+grid
 
+figure(2)
+scatter(data(:,1), data(:,2));axis equal;
+grid
 
 
 
@@ -21,7 +29,7 @@ function data = nspirals(n , N, degrees, start)
         n = 2;
     end
     if nargin < 2
-        N = 4000;
+        N = 300;
     end
     if nargin < 3
         degrees = 300;
@@ -31,7 +39,7 @@ function data = nspirals(n , N, degrees, start)
     end
 
     
-    noise = 0;
+    noise = 0.7;
     deg2rad = (2*pi)/360;
     start = start * deg2rad;
     N1 = floor(N/2);
@@ -74,7 +82,7 @@ function data = twospirals(N, degrees, start, noise)
 % noise displaces the instances from the spiral. 
 %  0 is no noise, at 1 the spirals will start overlapping
     if nargin < 1
-        N = 2000;
+        N = 100;
     end
     if nargin < 2
         degrees = 570;
