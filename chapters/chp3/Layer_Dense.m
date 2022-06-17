@@ -12,19 +12,11 @@ classdef Layer_Dense
          obj.biases = zeros(1, n_neurons);
       end
       
-      
-      %I dont know why this *
-      function obj = set.output(obj, val)
-          obj.output = val;
-      end
-      
-      
-      % * and/or this doesnt set obj.output
+
       function obj = forward(obj, inputs)
           
           if size(inputs,2) ==  size(obj.weights,1)
-            X = inputs * obj.weights + obj.biases;
-            obj.output = X;
+            obj.output = inputs * obj.weights + obj.biases;
             
          
           elseif size(inputs,2) ==  size(obj.weights,2)
