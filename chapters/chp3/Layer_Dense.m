@@ -12,8 +12,28 @@ classdef Layer_Dense
          obj.biases = zeros(1, n_neurons);
       end
       
+      
+      %I dont know why this *
+      function obj = set.output(obj, val)
+          obj.output = val;
+      end
+      
+      
+      % * and/or this doesnt set obj.output
       function obj = forward(obj, inputs)
-        obj.output = inputs * obj.weights' + obj.biases;
+          
+          if size(inputs,2) ==  size(obj.weights,1)
+            X = inputs * obj.weights + obj.biases;
+            obj.output = X;
+            
+         
+          elseif size(inputs,2) ==  size(obj.weights,2)
+              obj.output = inputs * obj.weights' + obj.biases;
+          
+          else
+              disp("Dimension Problem while trying Matrix-Multiplication.")
+          end
+          
       end
       
    end
