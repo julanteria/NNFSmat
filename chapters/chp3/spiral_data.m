@@ -3,22 +3,22 @@
 
 
 
-data = nspirals(3);
+%data = spiral_data(3);
 
 
 
 
-figure(1)
-scatter(data(:,1), data(:,2), 12, data(:,3)); axis equal;
-grid
+%figure(1)
+%scatter(data(:,1), data(:,2), 12, data(:,3)); axis equal;
+%grid
 
-figure(2)
-scatter(data(:,1), data(:,2));axis equal;
-grid
+%figure(2)
+%scatter(data(:,1), data(:,2));axis equal;
+%grid
 
 
 
-function data = nspirals(n , N, degrees, start)
+function data = spiral_data(n , N, degrees, start)
 % Generate "n spirals" dataset with N instances.
 % degrees controls the length of the spirals
 % start determines how far from the origin the spirals start, in degrees
@@ -64,11 +64,16 @@ function data = nspirals(n , N, degrees, start)
         
         
         dat = data;
+
         data = [dat;d];
+ 
         
+      
            
         
     end
+    
+    data( ~any(data,2), : ) = [];
     
     
 end
